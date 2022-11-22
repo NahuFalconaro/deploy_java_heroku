@@ -20,10 +20,10 @@ public class EstudianteCarrera implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idEstudianteCarrera;
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne(cascade = {CascadeType.MERGE})
 	@JoinColumn(name = "id_carrera")
 	private Carrera idCarrera;
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne(cascade = {CascadeType.MERGE})
 	@JoinColumn(name = "id_estudiante")
 	private Estudiante idEstudiante;
 	@Column(name="graduado")
