@@ -2,11 +2,13 @@ package entregable.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 
@@ -18,9 +20,11 @@ public class EstudianteCarrera implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idEstudianteCarrera;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "id_carrera")
 	private Carrera idCarrera;
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "id_estudiante")
 	private Estudiante idEstudiante;
 	@Column(name="graduado")
 	private boolean graduado;
